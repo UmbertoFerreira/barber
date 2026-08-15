@@ -9,7 +9,8 @@ import jwt
 from datetime import datetime, timezone, timedelta
 from typing import List, Optional
 
-from fastapi import FastAPI, APIRouter, HTTPException, Request, Response, Depends
+from fastapi import FastAPI, APIRouter, HTTPException, Request, Response, Depends, UploadFile, File
+from fastapi.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic import BaseModel, Field, EmailStr
@@ -17,6 +18,9 @@ from pydantic import BaseModel, Field, EmailStr
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
+
+UPLOAD_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "uploads")
+os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
@@ -243,6 +247,21 @@ async def delete_service(service_id: str, admin=Depends(require_admin)):
     return {"ok": True}
 
 
+# ---------- Uploads ----------
+@api_router.post("/admin/upload")
+async def upload_image(file: UploadFile = File(...), admin=Depends(require_admin)):
+    ext = (file.filename or "").rsplit(".", 1)[-1].lower()
+    if ext not in {"jpg", "jpeg", "png", "webp"}:
+        raise HTTPException(status_code=400, detail="Formato inválido. Use JPG, PNG ou WebP.")
+    content = await file.read()
+    if len(content) > 8 * 1024 * 1024:
+        raise HTTPException(status_code=400, detail="Arquivo muito grande (máx. 8 MB).")
+    name = f"{uuid.uuid4()}.{ext}"
+    with open(os.path.join(UPLOAD_DIR, name), "wb") as f:
+        f.write(content)
+    return {"url": f"/api/uploads/{name}"}
+
+
 # ---------- Products ----------
 @api_router.get("/products")
 async def list_products(category: Optional[str] = None):
@@ -466,6 +485,7 @@ async def shutdown_db_client():
 
 
 app.include_router(api_router)
+app.mount("/api/uploads", StaticFiles(directory=UPLOAD_DIR), name="uploads")
 
 app.add_middleware(
     CORSMiddleware,

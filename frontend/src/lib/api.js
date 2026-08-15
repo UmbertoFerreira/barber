@@ -17,3 +17,8 @@ export function formatApiError(detail, fallback = "Algo deu errado. Tente novame
 export function brl(value) {
   return `R$ ${Number(value).toFixed(2).replace(".", ",")}`;
 }
+
+export function imgUrl(src) {
+  if (!src) return "";
+  return src.startsWith("/") ? `${process.env.REACT_APP_BACKEND_URL}${src}` : src;
+}

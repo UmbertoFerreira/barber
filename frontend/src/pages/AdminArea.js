@@ -5,7 +5,7 @@ import { Shield, Plus, Pencil, Trash2, X, CalendarCheck, Package, Scissors } fro
 import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import { useAuth } from "@/context/AuthContext";
-import { api, brl, formatApiError } from "@/lib/api";
+import { api, brl, formatApiError, imgUrl } from "@/lib/api";
 
 const inputCls = "w-full bg-petrol-950/70 border border-white/15 focus:border-gold px-4 py-3 text-cream text-sm outline-none transition-colors placeholder:text-cream/30";
 const selectCls = inputCls;
@@ -59,6 +59,25 @@ export default function AdminArea() {
   const [productModal, setProductModal] = useState(null);
   const [hours, setHours] = useState(null);
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
+
+  const uploadProductImage = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    try {
+      const fd = new FormData();
+      fd.append("file", file);
+      const { data } = await api.post("/admin/upload", fd, { headers: { "Content-Type": "multipart/form-data" } });
+      setProductModal((m) => ({ ...m, data: { ...m.data, image: data.url } }));
+      toast.success("Foto enviada");
+    } catch (err) {
+      toast.error(formatApiError(err.response?.data?.detail));
+    } finally {
+      setUploading(false);
+      e.target.value = "";
+    }
+  };
 
   const loadAll = useCallback(() => {
     api.get("/admin/bookings").then((r) => setBookings(r.data)).catch(() => {});
@@ -243,7 +262,7 @@ export default function AdminArea() {
               {products.map((p) => (
                 <div key={p.id} data-testid={`admin-product-${p.id}`} className="bg-petrol-900/70 border border-white/10 p-5 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
                   <div className="flex items-center gap-4">
-                    {p.image && <img src={p.image} alt="" className="w-12 h-14 object-cover border border-gold/30" />}
+                    {p.image && <img src={imgUrl(p.image)} alt="" className="w-12 h-14 object-cover border border-gold/30" />}
                     <div>
                       <p className="font-serif-alt font-semibold text-lg text-cream">{p.name} {!p.active && <span className="font-mono-label text-crimson-bright text-[0.55rem] ml-2">INATIVO</span>}</p>
                       <p className="font-mono text-sm text-gold mt-1">
@@ -384,7 +403,19 @@ export default function AdminArea() {
               </div>
               <input data-testid="product-tag-input" placeholder="Selo (ex.: Edição Limitada)" value={productModal.data.tag} onChange={(e) => setProductModal({ ...productModal, data: { ...productModal.data, tag: e.target.value } })} className={inputCls} />
               <input data-testid="product-notes-input" placeholder="Notas / descrição" value={productModal.data.notes} onChange={(e) => setProductModal({ ...productModal, data: { ...productModal.data, notes: e.target.value } })} className={inputCls} />
-              <input data-testid="product-image-input" type="url" placeholder="URL da imagem" value={productModal.data.image} onChange={(e) => setProductModal({ ...productModal, data: { ...productModal.data, image: e.target.value } })} className={inputCls} />
+              <input data-testid="product-image-input" type="url" placeholder="URL da imagem (opcional)" value={productModal.data.image} onChange={(e) => setProductModal({ ...productModal, data: { ...productModal.data, image: e.target.value } })} className={inputCls} />
+              <div className="flex items-center gap-4">
+                <label
+                  data-testid="product-image-upload-label"
+                  className="flex-1 cursor-pointer text-center px-4 py-3.5 border border-dashed border-gold/40 text-gold font-mono-label hover:bg-gold/10 transition-colors"
+                >
+                  {uploading ? "Enviando foto..." : "Enviar foto do computador"}
+                  <input data-testid="product-image-upload" type="file" accept="image/png,image/jpeg,image/webp" onChange={uploadProductImage} disabled={uploading} className="hidden" />
+                </label>
+                {productModal.data.image && (
+                  <img data-testid="product-image-preview" src={imgUrl(productModal.data.image)} alt="Prévia" className="w-14 h-16 object-cover border border-gold/40" />
+                )}
+              </div>
               <label className="flex items-center gap-3 text-cream/70 text-sm">
                 <input data-testid="product-active-checkbox" type="checkbox" checked={productModal.data.active} onChange={(e) => setProductModal({ ...productModal, data: { ...productModal.data, active: e.target.checked } })} className="accent-[#D4AF37] w-4 h-4" />
                 Produto ativo (visível na loja)

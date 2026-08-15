@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ShoppingBag, SprayCan, Shirt } from "lucide-react";
 import { toast } from "sonner";
-import { api, brl } from "@/lib/api";
+import { api, brl, imgUrl } from "@/lib/api";
 import { useCart } from "@/context/CartContext";
 
 function ProductCard({ product, idx, variant }) {
@@ -20,7 +20,7 @@ function ProductCard({ product, idx, variant }) {
         <div className={`overflow-hidden ${variant === "perfume" ? "aspect-[3/4] gold-frame" : "aspect-[4/5] border border-white/10"}`}>
           {product.image ? (
             <motion.img
-              src={product.image}
+              src={imgUrl(product.image)}
               alt={product.name}
               className="w-full h-full object-cover"
               whileHover={{ scale: 1.07 }}
