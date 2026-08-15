@@ -78,5 +78,9 @@ agenthub/agents/youtube/db
 
 memory/test_credentials.md
 
+# Uploads locais do painel admin
+backend/uploads/*
+!backend/uploads/.gitkeep
+
 # Mobile development
 android-sdk/
