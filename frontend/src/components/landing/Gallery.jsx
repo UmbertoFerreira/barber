@@ -5,14 +5,19 @@ import { useAuth } from "@/context/AuthContext";
 
 const CUTS = [
   {
-    name: "Degradê Navalhado",
-    desc: "Fade cirúrgico finalizado na lâmina",
+    name: "Degradê",
+    desc: "Fade limpo, do baixo ao alto",
     image: "/gallery/corte-degrade.png",
   },
   {
-    name: "Freestyle Colorido",
-    desc: "Cor vibrante com risca freestyle na navalha",
+    name: "Degradê Navalhado",
+    desc: "Fade com risca feita na navalha",
     image: "/gallery/corte-freestyle.jpeg",
+  },
+  {
+    name: "Corte Social",
+    desc: "Clássico na tesoura, sempre alinhado",
+    image: "",
   },
 ];
 
@@ -47,7 +52,7 @@ export default function Gallery() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-4xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {CUTS.map((cut, idx) => (
             <motion.figure
               key={cut.name}
@@ -60,13 +65,20 @@ export default function Gallery() {
               onClick={() => pickStyle(cut)}
             >
               <div className="aspect-[3/4] overflow-hidden">
-                <motion.img
-                  src={cut.image}
-                  alt={`Corte ${cut.name}`}
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.08 }}
-                  transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                />
+                {cut.image ? (
+                  <motion.img
+                    src={cut.image}
+                    alt={`Corte ${cut.name}`}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.08 }}
+                    transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                  />
+                ) : (
+                  <div className="w-full h-full bg-petrol-800 flex flex-col items-center justify-center gap-4 spotlight">
+                    <Scissors size={52} strokeWidth={1} className="text-gold/50" />
+                    <span className="font-mono-label text-cream/30 text-[0.6rem]">Foto em breve</span>
+                  </div>
+                )}
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-petrol-950/95 via-petrol-950/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="absolute top-4 left-4 font-mono text-gold/60 text-xs">/{String(idx + 1).padStart(2, "0")}</span>
