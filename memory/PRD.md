@@ -16,6 +16,7 @@ Landing page de barbearia "Antonio Barber" baseada na foto do logo enviada (embl
 
 ## Implementado (2026-08-15)
 - Galeria com 3 estilos: Degradê (foto real), Degradê Navalhado (foto real) e Corte Social (placeholder "Foto em breve" até o usuário enviar a foto)
+- Seção "Nossa História" reformulada: imagem lateral removida, novo layout centralizado com frase de destaque ("Barbearia de verdade não é só cortar cabelo. É cuidar de quem senta na cadeira."), 3 capítulos em cards numerados grandes e faixa final "Feito com capricho · Aqui você é de casa"
 - Upload de foto pelo admin: POST /api/admin/upload (multipart, JPG/PNG/WebP, máx 8MB, só admin) salva em /app/backend/uploads e serve via /api/uploads; formulário de produto tem botão "Enviar foto do computador" com prévia; frontend resolve URLs relativas com imgUrl()
 - Pacote do código para VSCode: /app/antonio-barber-codigo.zip + README-LOCAL.md com instruções de execução
 - Textos do site simplificados (tom direto, sem "gourmet"): hero "Corte e barba do seu jeito, sem frescura", seções renomeadas (O que a gente faz, Escolha seu corte, Loja, Sobre a casa), descrições de serviços e manifesto reescritos

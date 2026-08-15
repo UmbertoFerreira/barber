@@ -1,82 +1,99 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
+import { Scissors } from "lucide-react";
 
 const CHAPTERS = [
   {
     number: "01",
     heading: "A Tradição da Lâmina",
-    body: "Aqui o corte é feito com calma e capricho, do jeito antigo: navalha, tesoura e atenção total.",
+    body: "Aqui o corte é feito com calma e capricho, do jeito antigo: navalha, tesoura e atenção total em cada detalhe.",
   },
   {
     number: "02",
     heading: "Lugar de se sentir em casa",
-    body: "Chega, senta e relaxa. Toma um café, troca uma ideia e sai renovado.",
+    body: "Chega, senta e relaxa. Toma um café, troca uma ideia e sai renovado — sem pressa e sem enrolação.",
   },
   {
     number: "03",
     heading: "Estilo que marca",
-    body: "Corte, barba ou perfume — você sai daqui com a sua marca, do seu jeito.",
+    body: "Corte, barba ou perfume — você sai daqui com a sua marca, do seu jeito, pronto pra qualquer rolê.",
   },
 ];
 
-const SIDE_IMG = "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwzfHxiYXJiZXIlMjBoYWlyY3V0JTIwYmVhcmR8ZW58MHx8fHwxNzg2ODI3NjY0fDA&ixlib=rb-4.1.0&q=85";
-
 export default function Manifesto() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const imgY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
-
   return (
-    <section id="manifesto" ref={ref} data-testid="manifesto-section" className="relative py-24 lg:py-36 px-5 lg:px-8 bg-petrol-900 grain overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start">
-        <div>
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <p className="font-mono-label text-crimson-bright mb-4">— Sobre a casa</p>
-            <h2 className="font-display font-bold uppercase text-3xl sm:text-4xl lg:text-5xl text-cream leading-tight mb-14" data-testid="manifesto-title">
-              Nossa <span className="text-gold-gradient">História</span>
-            </h2>
-          </motion.div>
+    <section id="manifesto" data-testid="manifesto-section" className="relative py-24 lg:py-36 bg-petrol-900 grain overflow-hidden">
+      <div className="absolute inset-0 spotlight pointer-events-none" />
 
-          <div className="space-y-12">
-            {CHAPTERS.map((c, idx) => (
-              <motion.div
-                key={c.number}
-                data-testid={`manifesto-chapter-${c.number}`}
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.8, delay: idx * 0.12, ease: [0.22, 1, 0.36, 1] }}
-                className="flex gap-6 lg:gap-8 border-l border-gold/25 pl-6 lg:pl-8"
-              >
-                <span className="font-mono text-gold text-sm pt-1.5 shrink-0">{c.number}</span>
-                <div>
-                  <h3 className="font-serif-alt font-semibold text-2xl text-cream mb-3">{c.heading}</h3>
-                  <p className="text-cream/55 text-sm leading-relaxed">{c.body}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+      <div className="max-w-6xl mx-auto px-5 lg:px-8 relative">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center mb-20"
+        >
+          <p className="font-mono-label text-crimson-bright mb-5">— Sobre a casa</p>
+          <h2 className="font-display font-bold uppercase text-3xl sm:text-4xl lg:text-5xl text-cream leading-tight" data-testid="manifesto-title">
+            Nossa <span className="text-gold-gradient">História</span>
+          </h2>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="w-24 h-[2px] bg-gold mx-auto mt-8 origin-center"
+          />
+        </motion.div>
+
+        <motion.blockquote
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center max-w-3xl mx-auto mb-24"
+          data-testid="manifesto-quote"
+        >
+          <p className="font-serif-alt italic text-2xl sm:text-3xl lg:text-4xl text-cream/85 leading-relaxed">
+            "Barbearia de verdade não é só cortar cabelo.
+            <span className="text-gold"> É cuidar de quem senta na cadeira.</span>"
+          </p>
+        </motion.blockquote>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gold/15 border border-gold/15">
+          {CHAPTERS.map((c, idx) => (
+            <motion.article
+              key={c.number}
+              data-testid={`manifesto-chapter-${c.number}`}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, delay: idx * 0.15, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ backgroundColor: "#152E34" }}
+              className="group relative bg-petrol-900 p-8 lg:p-10 transition-colors"
+            >
+              <span className="font-display text-6xl lg:text-7xl text-gold/15 group-hover:text-gold/30 transition-colors duration-500 leading-none block mb-6">
+                {c.number}
+              </span>
+              <h3 className="font-serif-alt font-semibold text-2xl text-cream mb-4">{c.heading}</h3>
+              <p className="text-cream/55 text-sm leading-relaxed">{c.body}</p>
+              <span className="absolute top-0 left-0 h-[2px] w-0 bg-gold group-hover:w-full transition-all duration-700" />
+            </motion.article>
+          ))}
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="relative lg:sticky lg:top-28"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-8"
+          data-testid="manifesto-banner"
         >
-          <div className="overflow-hidden gold-frame aspect-[4/5]">
-            <motion.img style={{ y: imgY }} src={SIDE_IMG} alt="Barbeiro Antonio em ação" className="w-full h-[116%] object-cover -mt-[8%]" />
-          </div>
-          <div className="absolute -bottom-5 -left-5 bg-crimson px-6 py-4 border border-gold/40">
-            <p className="font-display text-cream text-lg tracking-wider">FEITO COM CAPRICHO</p>
-            <p className="font-mono-label text-cream/70 text-[0.55rem] mt-1">Aqui você é de casa</p>
-          </div>
+          <Scissors size={20} className="text-gold rotate-90" />
+          <p className="font-display text-gold text-lg lg:text-xl tracking-[0.2em] text-center">
+            FEITO COM CAPRICHO · AQUI VOCÊ É DE CASA
+          </p>
+          <Scissors size={20} className="text-gold -rotate-90" />
         </motion.div>
       </div>
     </section>
