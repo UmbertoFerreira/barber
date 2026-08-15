@@ -41,7 +41,7 @@ export default function Navbar() {
           <LogoIcon size={42} className="transition-transform duration-500 group-hover:rotate-[8deg]" />
           <div className="leading-none">
             <span className="font-display font-bold text-gold text-base tracking-wider block">ANTONIO</span>
-            <span className="font-mono-label text-crimson-bright text-[0.6rem]">BARBER · 1984</span>
+            <span className="font-mono-label text-crimson-bright text-[0.6rem]">BARBER</span>
           </div>
         </Link>
 

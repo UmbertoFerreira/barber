@@ -7,7 +7,7 @@ const ITEMS = [
   "PERFUMARIA EXCLUSIVA",
   "ALFAIATARIA MASCULINA",
   "ESTILO DE CLASSE",
-  "DESDE 1984",
+  "TRADIÇÃO E ESTILO",
 ];
 
 function Row() {

@@ -60,7 +60,7 @@ export default function Hero() {
           className="font-mono-label text-gold mb-6"
           data-testid="hero-eyebrow"
         >
-          BARBEARIA CLÁSSICA · DESDE 1984
+          BARBEARIA CLÁSSICA · TRADIÇÃO E ESTILO
         </motion.p>
 
         <h1 className="font-display font-bold uppercase leading-[1.05] text-4xl sm:text-5xl lg:text-6xl tracking-tight" data-testid="hero-headline">

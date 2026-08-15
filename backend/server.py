@@ -353,7 +353,7 @@ SEED_PRODUCTS = [
     {"name": "Elixir Dark Petrol 100ml", "category": "perfume", "price": 349.0,
      "notes": "Notas de Couro, Âmbar, Tabaco e Madeira de Cedro", "tag": "Edição Limitada Antonio",
      "image": "https://images.unsplash.com/photo-1523293182086-7651a899d37f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHxfHxwZXJmdW1lJTIwYm90dGxlJTIwcHJvZHVjdHxlbnwwfHx8fDE3ODY4Mjc2NjR8MA&ixlib=rb-4.1.0&q=85", "stock": 12},
-    {"name": "Colônia Vintage Gold 1984", "category": "perfume", "price": 289.0,
+    {"name": "Colônia Vintage Gold", "category": "perfume", "price": 289.0,
      "notes": "Citrus Apressado, Bergamota, Pimenta Preta e Vetiver", "tag": "Best Seller",
      "image": "https://images.unsplash.com/photo-1622618991746-fe6004db3a47?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaH3fHxwZXJmdW1lJTIwYm90dGxlJTIwcHJvZHVjdHxlbnwwfHx8fDE3ODY4Mjc2NjR8MA&ixlib=rb-4.1.0&q=85", "stock": 8},
     {"name": "Essência Barber Reserve 50ml", "category": "perfume", "price": 219.0,

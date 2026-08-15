@@ -9,7 +9,7 @@ const CHAPTERS = [
   },
   {
     number: "02",
-    heading: "O Santuário do Gentleman",
+    heading: "O Santuário do Homem",
     body: "Nossa barbearia não é apenas um local de passagem, mas um refúgio para desacelerar, saborear um bom café ou uísque e renovar a confiança.",
   },
   {
@@ -74,7 +74,7 @@ export default function Manifesto() {
             <motion.img style={{ y: imgY }} src={SIDE_IMG} alt="Barbeiro Antonio em ação" className="w-full h-[116%] object-cover -mt-[8%]" />
           </div>
           <div className="absolute -bottom-5 -left-5 bg-crimson px-6 py-4 border border-gold/40">
-            <p className="font-display text-cream text-lg tracking-wider">DESDE 1984</p>
+            <p className="font-display text-cream text-lg tracking-wider">TRADIÇÃO PURA</p>
             <p className="font-mono-label text-cream/70 text-[0.55rem] mt-1">Três gerações de mestres barbeiros</p>
           </div>
         </motion.div>

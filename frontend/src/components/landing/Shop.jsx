@@ -88,7 +88,7 @@ export default function Shop() {
             eyebrow="Capítulo II · A Fragrância"
             title="Perfumaria fina &"
             accent="assinaturas olfativas"
-            description="Frascos de edição limitada criados para o gentleman que deixa rastro por onde passa."
+            description="Frascos de edição limitada criados para o homem que deixa rastro por onde passa."
             icon={SprayCan}
             testId="perfumes-title"
           />
