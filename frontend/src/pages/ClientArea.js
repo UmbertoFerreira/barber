@@ -43,7 +43,21 @@ export default function ClientArea() {
   const [bookings, setBookings] = useState([]);
   const [orders, setOrders] = useState([]);
   const [form, setForm] = useState({ service_id: "", date: "", time: "09:00", notes: "" });
+  const [takenSlots, setTakenSlots] = useState([]);
   const [sending, setSending] = useState(false);
+
+  useEffect(() => {
+    if (!form.date) { setTakenSlots([]); return; }
+    api.get(`/bookings/slots?date=${form.date}`)
+      .then((r) => {
+        setTakenSlots(r.data.taken);
+        if (r.data.taken.includes(form.time)) {
+          const free = TIMES.find((t) => !r.data.taken.includes(t));
+          setForm((f) => ({ ...f, time: free || "" }));
+        }
+      })
+      .catch(() => {});
+  }, [form.date]);
 
   const load = useCallback(() => {
     api.get("/bookings/mine").then((r) => setBookings(r.data)).catch(() => {});
@@ -77,12 +91,15 @@ export default function ClientArea() {
   const submitBooking = async (e) => {
     e.preventDefault();
     if (!form.service_id || !form.date) { toast.error("Escolha o serviço e a data"); return; }
+    if (!form.time) { toast.error("Dia lotado — escolha outra data"); return; }
     setSending(true);
     try {
       await api.post("/bookings", form);
       toast.success("Agendamento solicitado! Aguarde a confirmação.");
+      const date = form.date;
       setForm((f) => ({ ...f, date: "", notes: "" }));
       load();
+      api.get(`/bookings/slots?date=${date}`).then((r) => setTakenSlots(r.data.taken)).catch(() => {});
       setTab("agendamentos");
     } catch (err) {
       toast.error(formatApiError(err.response?.data?.detail));
@@ -178,8 +195,15 @@ export default function ClientArea() {
                     onChange={(e) => setForm({ ...form, time: e.target.value })}
                     className={inputCls}
                   >
-                    {TIMES.map((t) => <option key={t} value={t}>{t}</option>)}
+                    {TIMES.map((t) => (
+                      <option key={t} value={t} disabled={takenSlots.includes(t)}>
+                        {t}{takenSlots.includes(t) ? " — ocupado" : ""}
+                      </option>
+                    ))}
                   </select>
+                  {form.date && takenSlots.length >= TIMES.length && (
+                    <p data-testid="slots-full-message" className="text-crimson-bright text-xs mt-2 font-mono-label">Dia lotado — escolha outra data</p>
+                  )}
                 </div>
               </div>
             </div>

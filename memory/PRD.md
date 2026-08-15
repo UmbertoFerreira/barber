@@ -18,6 +18,7 @@ Landing page de barbearia "Antonio Barber" baseada na foto do logo enviada (embl
 - Fotos reais da casa na galeria (2 primeiras posições: degradê e freestyle), servidas de /public/gallery
 - Textos do site simplificados (tom direto, sem "gourmet"): hero "Corte e barba do seu jeito, sem frescura", seções renomeadas (O que a gente faz, Escolha seu corte, Loja, Sobre a casa), descrições de serviços e manifesto reescritos
 - Galeria de Cortes: vitrine com 6 estilos (fotos reais), hover revela nome/descrição e botão "Quero esse estilo" que leva ao agendamento com a referência preenchida nas observações; novo link "Galeria" no menu
+- Horários bloqueados: GET /api/bookings/slots?date= retorna horários ocupados (pendente/confirmado); select de horário desabilita ocupados com "— ocupado" e auto-seleciona horário livre; backend rejeita duplicado com 409; cancelar agendamento no admin libera o horário
 - Logo emblema SVG customizado (pólo, navalha, tesoura, ANTONIO dourado, faixa BARBER vermelha) + ícone/favicon
 - Landing award-level: hero cinético com reveal linha a linha + parallax, pólos de barbeiro animados, marquee editorial lento, cards de serviços/preços numerados, seção Perfumaria (spotlight, molduras douradas) diferenciada da seção Vestuário (grid editorial), manifesto em capítulos numerados com parallax, footer
 - Loja demo: sacola com drawer, quantidades, checkout que registra pedido (sem cobrança)
@@ -32,7 +33,7 @@ Ver /app/memory/test_credentials.md (admin@antoniobarber.com / admin123; cliente
 
 ## Backlog priorizado
 - P0: pagamento real (Stripe), notificação de agendamento por e-mail (Resend)
-- P1: escolha de barbeiro no agendamento, agenda com bloqueio de horários ocupados, upload de imagem de produto (object storage)
+- P1: escolha de barbeiro no agendamento, upload de imagem de produto (object storage)
 - P2: recuperação de senha, avaliações de clientes, programa de fidelidade
 
 ## Próximas tarefas sugeridas

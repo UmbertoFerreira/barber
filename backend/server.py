@@ -252,11 +252,26 @@ async def delete_product(product_id: str, admin=Depends(require_admin)):
 
 
 # ---------- Bookings ----------
+@api_router.get("/bookings/slots")
+async def booked_slots(date: str):
+    bookings = await db.bookings.find(
+        {"date": date, "status": {"$in": ["pendente", "confirmado"]}},
+        {"_id": 0, "time": 1},
+    ).to_list(100)
+    return {"taken": [b["time"] for b in bookings]}
+
+
 @api_router.post("/bookings")
 async def create_booking(data: BookingIn, user=Depends(get_current_user)):
     service = await db.services.find_one({"id": data.service_id}, {"_id": 0})
     if not service:
         raise HTTPException(status_code=404, detail="Serviço não encontrado")
+    conflict = await db.bookings.find_one({
+        "date": data.date, "time": data.time,
+        "status": {"$in": ["pendente", "confirmado"]},
+    })
+    if conflict:
+        raise HTTPException(status_code=409, detail="Esse horário já está ocupado. Escolha outro.")
     doc = {
         "id": str(uuid.uuid4()),
         "user_id": user["id"],
