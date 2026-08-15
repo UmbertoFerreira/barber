@@ -10,8 +10,8 @@ const CUTS = [
     image: "/gallery/corte-degrade.png",
   },
   {
-    name: "Social Executivo",
-    desc: "Estilo marcante com risca freestyle",
+    name: "Freestyle Colorido",
+    desc: "Cor vibrante com risca freestyle na navalha",
     image: "/gallery/corte-freestyle.jpeg",
   },
   {
