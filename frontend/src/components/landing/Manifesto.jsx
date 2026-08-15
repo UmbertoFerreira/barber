@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { Scissors } from "lucide-react";
 
 const CHAPTERS = [
-  { number: "01", heading: "Tradição" },
-  { number: "02", heading: "Amizade" },
-  { number: "03", heading: "Estilo" },
+  { number: "01", heading: "Capricho" },
+  { number: "02", heading: "Resenha" },
+  { number: "03", heading: "Atitude" },
 ];
 
 export default function Manifesto() {
