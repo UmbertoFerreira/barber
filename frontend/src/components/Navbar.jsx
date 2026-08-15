@@ -8,6 +8,7 @@ import { useCart } from "@/context/CartContext";
 
 const LINKS = [
   { label: "Serviços & Preços", hash: "#servicos" },
+  { label: "Galeria", hash: "#galeria" },
   { label: "Perfumes", hash: "#perfumes" },
   { label: "Vestuário", hash: "#vestuario" },
   { label: "Manifesto", hash: "#manifesto" },

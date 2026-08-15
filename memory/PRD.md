@@ -15,6 +15,7 @@ Landing page de barbearia "Antonio Barber" baseada na foto do logo enviada (embl
 - Admin: gerencia agendamentos (status), serviços/preços (CRUD), produtos (CRUD, perfume/vestuário), pedidos (status)
 
 ## Implementado (2026-08-15)
+- Galeria de Cortes: vitrine com 6 estilos (fotos reais), hover revela nome/descrição e botão "Quero esse estilo" que leva ao agendamento com a referência preenchida nas observações; novo link "Galeria" no menu
 - Logo emblema SVG customizado (pólo, navalha, tesoura, ANTONIO dourado, faixa BARBER vermelha) + ícone/favicon
 - Landing award-level: hero cinético com reveal linha a linha + parallax, pólos de barbeiro animados, marquee editorial lento, cards de serviços/preços numerados, seção Perfumaria (spotlight, molduras douradas) diferenciada da seção Vestuário (grid editorial), manifesto em capítulos numerados com parallax, footer
 - Loja demo: sacola com drawer, quantidades, checkout que registra pedido (sem cobrança)
@@ -30,7 +31,7 @@ Ver /app/memory/test_credentials.md (admin@antoniobarber.com / admin123; cliente
 ## Backlog priorizado
 - P0: pagamento real (Stripe), notificação de agendamento por e-mail (Resend)
 - P1: escolha de barbeiro no agendamento, agenda com bloqueio de horários ocupados, upload de imagem de produto (object storage)
-- P2: recuperação de senha, avaliações de clientes, galeria de cortes, programa de fidelidade
+- P2: recuperação de senha, avaliações de clientes, programa de fidelidade
 
 ## Próximas tarefas sugeridas
 1. Pagamento real com Stripe no checkout

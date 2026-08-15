@@ -3,6 +3,7 @@ import CartDrawer from "@/components/CartDrawer";
 import Hero from "@/components/landing/Hero";
 import Marquee from "@/components/landing/Marquee";
 import Services from "@/components/landing/Services";
+import Gallery from "@/components/landing/Gallery";
 import Shop from "@/components/landing/Shop";
 import Manifesto from "@/components/landing/Manifesto";
 import Footer from "@/components/landing/Footer";
@@ -16,6 +17,7 @@ export default function Landing() {
         <Hero />
         <Marquee />
         <Services />
+        <Gallery />
         <Shop />
         <Manifesto />
       </main>

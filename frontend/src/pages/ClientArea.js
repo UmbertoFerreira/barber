@@ -51,6 +51,15 @@ export default function ClientArea() {
   }, []);
 
   useEffect(() => {
+    const ref = sessionStorage.getItem("referencia_corte");
+    if (ref) {
+      sessionStorage.removeItem("referencia_corte");
+      setForm((f) => ({ ...f, notes: `Referência da galeria: ${ref}` }));
+      toast.success(`Referência "${ref}" adicionada ao agendamento`);
+    }
+  }, []);
+
+  useEffect(() => {
     if (user === false) { navigate("/entrar"); return; }
     if (user) {
       api.get("/services").then((r) => {

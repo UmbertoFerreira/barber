@@ -36,7 +36,7 @@ export default function Manifesto() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="font-mono-label text-crimson-bright mb-4">— Capítulo IV · A Filosofia</p>
+            <p className="font-mono-label text-crimson-bright mb-4">— Capítulo V · A Filosofia</p>
             <h2 className="font-display font-bold uppercase text-3xl sm:text-4xl lg:text-5xl text-cream leading-tight mb-14" data-testid="manifesto-title">
               Nosso <span className="text-gold-gradient">Manifesto</span>
             </h2>
