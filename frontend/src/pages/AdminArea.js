@@ -16,6 +16,9 @@ const ORDER_STATUSES = ["recebido", "preparando", "enviado", "entregue", "cancel
 const EMPTY_SERVICE = { name: "", description: "", duration: "", price: "", active: true };
 const EMPTY_PRODUCT = { name: "", category: "perfume", price: "", notes: "", tag: "", image: "", stock: 10, active: true };
 
+const DAY_NAMES = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"];
+const HOUR_OPTIONS = Array.from({ length: 15 }, (_, i) => `${String(i + 7).padStart(2, "0")}:00`);
+
 function Modal({ title, onClose, children, testId }) {
   return (
     <motion.div
@@ -54,6 +57,7 @@ export default function AdminArea() {
   const [products, setProducts] = useState([]);
   const [serviceModal, setServiceModal] = useState(null); // {data, id?}
   const [productModal, setProductModal] = useState(null);
+  const [hours, setHours] = useState(null);
   const [saving, setSaving] = useState(false);
 
   const loadAll = useCallback(() => {
@@ -61,6 +65,7 @@ export default function AdminArea() {
     api.get("/admin/orders").then((r) => setOrders(r.data)).catch(() => {});
     api.get("/admin/services").then((r) => setServices(r.data)).catch(() => {});
     api.get("/admin/products").then((r) => setProducts(r.data)).catch(() => {});
+    api.get("/settings/hours").then((r) => setHours(r.data.days)).catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -134,6 +139,7 @@ export default function AdminArea() {
     { id: "servicos", label: `Serviços & Preços (${services.length})` },
     { id: "produtos", label: `Produtos (${products.length})` },
     { id: "pedidos", label: `Pedidos (${orders.length})` },
+    { id: "expediente", label: "Expediente" },
   ];
 
   return (
@@ -252,6 +258,67 @@ export default function AdminArea() {
                 </div>
               ))}
             </div>
+          </div>
+        )}
+
+        {tab === "expediente" && hours && (
+          <div data-testid="admin-hours-panel" className="bg-petrol-900/70 border border-gold/20 p-7 lg:p-10">
+            <h2 className="font-serif-alt font-semibold text-2xl text-cream mb-2">Dias e horários de funcionamento</h2>
+            <p className="text-cream/50 text-sm mb-8 font-serif-alt italic">Os clientes só conseguem agendar dentro do expediente definido aqui.</p>
+            <div className="space-y-3">
+              {hours.map((d, i) => (
+                <div key={i} data-testid={`hours-day-${i}`} className="flex flex-wrap items-center gap-4 bg-petrol-950/60 border border-white/10 p-4">
+                  <label className="flex items-center gap-3 w-36 cursor-pointer">
+                    <input
+                      data-testid={`hours-open-${i}`}
+                      type="checkbox"
+                      checked={d.open}
+                      onChange={(e) => setHours(hours.map((x, j) => j === i ? { ...x, open: e.target.checked } : x))}
+                      className="accent-[#D4AF37] w-4 h-4"
+                    />
+                    <span className="font-mono-label text-cream/80">{DAY_NAMES[i]}</span>
+                  </label>
+                  {d.open ? (
+                    <div className="flex items-center gap-3">
+                      <select
+                        data-testid={`hours-start-${i}`}
+                        value={d.start}
+                        onChange={(e) => setHours(hours.map((x, j) => j === i ? { ...x, start: e.target.value } : x))}
+                        className={`${selectCls} w-28`}
+                      >
+                        {HOUR_OPTIONS.map((h) => <option key={h} value={h}>{h}</option>)}
+                      </select>
+                      <span className="text-cream/40 font-mono text-sm">até</span>
+                      <select
+                        data-testid={`hours-end-${i}`}
+                        value={d.end}
+                        onChange={(e) => setHours(hours.map((x, j) => j === i ? { ...x, end: e.target.value } : x))}
+                        className={`${selectCls} w-28`}
+                      >
+                        {HOUR_OPTIONS.map((h) => <option key={h} value={h}>{h}</option>)}
+                      </select>
+                    </div>
+                  ) : (
+                    <span className="font-mono-label text-crimson-bright text-[0.6rem]">FECHADO</span>
+                  )}
+                </div>
+              ))}
+            </div>
+            <button
+              data-testid="hours-save-button"
+              onClick={async () => {
+                setSaving(true);
+                try {
+                  await api.put("/admin/hours", { days: hours });
+                  toast.success("Expediente salvo");
+                } catch (e) { toast.error(formatApiError(e.response?.data?.detail)); }
+                finally { setSaving(false); }
+              }}
+              disabled={saving}
+              className="mt-8 px-8 py-4 bg-gold text-petrol-950 font-mono-label font-semibold hover:bg-gold-bright transition-colors disabled:opacity-60"
+            >
+              {saving ? "Salvando..." : "Salvar Expediente"}
+            </button>
           </div>
         )}
 

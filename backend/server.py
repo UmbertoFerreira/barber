@@ -106,6 +106,34 @@ class StatusIn(BaseModel):
     status: str
 
 
+class DayHours(BaseModel):
+    open: bool
+    start: str = "09:00"
+    end: str = "19:00"
+
+
+class HoursIn(BaseModel):
+    days: List[DayHours]  # índice 0 = segunda ... 6 = domingo
+
+
+DEFAULT_HOURS = {
+    "days": [
+        {"open": False, "start": "09:00", "end": "19:00"},
+        {"open": True, "start": "09:00", "end": "19:00"},
+        {"open": True, "start": "09:00", "end": "19:00"},
+        {"open": True, "start": "09:00", "end": "19:00"},
+        {"open": True, "start": "09:00", "end": "19:00"},
+        {"open": True, "start": "09:00", "end": "14:00"},
+        {"open": False, "start": "09:00", "end": "19:00"},
+    ]
+}
+
+
+async def get_hours() -> dict:
+    doc = await db.settings.find_one({"key": "business_hours"}, {"_id": 0})
+    return doc["value"] if doc else DEFAULT_HOURS
+
+
 # ---------- Auth helpers ----------
 async def get_current_user(request: Request):
     token = request.cookies.get("access_token")
@@ -251,6 +279,19 @@ async def delete_product(product_id: str, admin=Depends(require_admin)):
     return {"ok": True}
 
 
+# ---------- Business hours ----------
+@api_router.get("/settings/hours")
+async def read_hours():
+    return await get_hours()
+
+
+@api_router.put("/admin/hours")
+async def update_hours(data: HoursIn, admin=Depends(require_admin)):
+    value = {"days": [d.model_dump() for d in data.days]}
+    await db.settings.update_one({"key": "business_hours"}, {"$set": {"key": "business_hours", "value": value}}, upsert=True)
+    return value
+
+
 # ---------- Bookings ----------
 @api_router.get("/bookings/slots")
 async def booked_slots(date: str):
@@ -266,6 +307,15 @@ async def create_booking(data: BookingIn, user=Depends(get_current_user)):
     service = await db.services.find_one({"id": data.service_id}, {"_id": 0})
     if not service:
         raise HTTPException(status_code=404, detail="Serviço não encontrado")
+    try:
+        weekday = datetime.fromisoformat(data.date).weekday()
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Data inválida")
+    day = (await get_hours())["days"][weekday]
+    if not day["open"]:
+        raise HTTPException(status_code=400, detail="A barbearia não abre nesse dia. Escolha outra data.")
+    if not (day["start"] <= data.time < day["end"]):
+        raise HTTPException(status_code=400, detail=f"Nesse dia atendemos das {day['start']} às {day['end']}.")
     conflict = await db.bookings.find_one({
         "date": data.date, "time": data.time,
         "status": {"$in": ["pendente", "confirmado"]},

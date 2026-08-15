@@ -44,20 +44,25 @@ export default function ClientArea() {
   const [orders, setOrders] = useState([]);
   const [form, setForm] = useState({ service_id: "", date: "", time: "09:00", notes: "" });
   const [takenSlots, setTakenSlots] = useState([]);
+  const [hours, setHours] = useState(null);
   const [sending, setSending] = useState(false);
+
+  const dayIdx = form.date ? (new Date(form.date + "T12:00:00").getDay() + 6) % 7 : null;
+  const dayHours = hours && dayIdx !== null ? hours[dayIdx] : null;
+  const allowedTimes = !dayHours ? TIMES : dayHours.open ? TIMES.filter((t) => t >= dayHours.start && t < dayHours.end) : [];
 
   useEffect(() => {
     if (!form.date) { setTakenSlots([]); return; }
     api.get(`/bookings/slots?date=${form.date}`)
       .then((r) => {
         setTakenSlots(r.data.taken);
-        if (r.data.taken.includes(form.time)) {
-          const free = TIMES.find((t) => !r.data.taken.includes(t));
+        if (!allowedTimes.includes(form.time) || r.data.taken.includes(form.time)) {
+          const free = allowedTimes.find((t) => !r.data.taken.includes(t));
           setForm((f) => ({ ...f, time: free || "" }));
         }
       })
       .catch(() => {});
-  }, [form.date]);
+  }, [form.date, hours]);
 
   const load = useCallback(() => {
     api.get("/bookings/mine").then((r) => setBookings(r.data)).catch(() => {});
@@ -76,6 +81,7 @@ export default function ClientArea() {
   useEffect(() => {
     if (user === false) { navigate("/entrar"); return; }
     if (user) {
+      api.get("/settings/hours").then((r) => setHours(r.data.days)).catch(() => {});
       api.get("/services").then((r) => {
         setServices(r.data);
         if (r.data[0]) setForm((f) => ({ ...f, service_id: f.service_id || r.data[0].id }));
@@ -91,7 +97,8 @@ export default function ClientArea() {
   const submitBooking = async (e) => {
     e.preventDefault();
     if (!form.service_id || !form.date) { toast.error("Escolha o serviço e a data"); return; }
-    if (!form.time) { toast.error("Dia lotado — escolha outra data"); return; }
+    if (dayHours && !dayHours.open) { toast.error("A barbearia não abre nesse dia. Escolha outra data."); return; }
+    if (!form.time || !allowedTimes.includes(form.time)) { toast.error("Dia lotado — escolha outra data"); return; }
     setSending(true);
     try {
       await api.post("/bookings", form);
@@ -195,13 +202,23 @@ export default function ClientArea() {
                     onChange={(e) => setForm({ ...form, time: e.target.value })}
                     className={inputCls}
                   >
-                    {TIMES.map((t) => (
-                      <option key={t} value={t} disabled={takenSlots.includes(t)}>
-                        {t}{takenSlots.includes(t) ? " — ocupado" : ""}
-                      </option>
-                    ))}
+                    {TIMES.map((t) => {
+                      const taken = takenSlots.includes(t);
+                      const closed = form.date && dayHours && !allowedTimes.includes(t);
+                      return (
+                        <option key={t} value={t} disabled={taken || closed}>
+                          {t}{taken ? " — ocupado" : closed ? " — fechado" : ""}
+                        </option>
+                      );
+                    })}
                   </select>
-                  {form.date && takenSlots.length >= TIMES.length && (
+                  {form.date && dayHours && !dayHours.open && (
+                    <p data-testid="day-closed-message" className="text-crimson-bright text-xs mt-2 font-mono-label">Fechado neste dia — escolha outra data</p>
+                  )}
+                  {form.date && dayHours && dayHours.open && allowedTimes.length > 0 && (
+                    <p className="text-cream/40 text-xs mt-2 font-mono-label">Atendimento das {dayHours.start} às {dayHours.end}</p>
+                  )}
+                  {form.date && dayHours && dayHours.open && allowedTimes.every((t) => takenSlots.includes(t)) && (
                     <p data-testid="slots-full-message" className="text-crimson-bright text-xs mt-2 font-mono-label">Dia lotado — escolha outra data</p>
                   )}
                 </div>

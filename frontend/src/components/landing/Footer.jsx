@@ -16,7 +16,7 @@ export default function Footer() {
             <h4 className="font-mono-label text-gold mb-6">Visite-nos</h4>
             <ul className="space-y-4 text-cream/60 text-sm">
               <li className="flex gap-3"><MapPin size={16} className="text-gold shrink-0 mt-0.5" /> Rua da Navalha, 120 — Centro Histórico</li>
-              <li className="flex gap-3"><Clock size={16} className="text-gold shrink-0 mt-0.5" /> Ter–Sáb · 09h às 19h</li>
+              <li className="flex gap-3"><Clock size={16} className="text-gold shrink-0 mt-0.5" /> Ter–Sex · 09h às 19h · Sáb até 14h</li>
               <li className="flex gap-3"><Phone size={16} className="text-gold shrink-0 mt-0.5" /> (11) 90000-0000</li>
             </ul>
           </div>
