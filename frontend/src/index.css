@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 193 44% 7%;
+        --foreground: 43 33% 94%;
+        --card: 189 40% 14%;
+        --card-foreground: 43 33% 94%;
+        --popover: 189 40% 12%;
+        --popover-foreground: 43 33% 94%;
+        --primary: 46 65% 52%;
+        --primary-foreground: 193 44% 7%;
+        --secondary: 189 40% 14%;
+        --secondary-foreground: 43 33% 94%;
+        --muted: 189 30% 18%;
+        --muted-foreground: 200 18% 65%;
+        --accent: 46 65% 52%;
+        --accent-foreground: 193 44% 7%;
+        --destructive: 0 57% 39%;
+        --destructive-foreground: 43 33% 94%;
+        --border: 46 65% 52% / 0.18;
+        --input: 189 30% 22%;
+        --ring: 46 65% 52%;
+        --radius: 0.25rem;
+    }
+}
+
+@layer base {
+    * {
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    html {
+        scroll-behavior: auto;
+    }
+    body {
+        background-color: #0B191C;
+        color: #F4F1EA;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+    }
+    ::selection {
+        background: #D4AF37;
+        color: #0B191C;
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #0B191C;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #1C3C43;
+        border-radius: 8px;
+        border: 2px solid #0B191C;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #D4AF37;
+    }
+}
+
+@layer utilities {
+    .font-display {
+        font-family: 'Cinzel Decorative', 'Playfair Display', serif;
+    }
+    .font-serif-alt {
+        font-family: 'Cormorant Garamond', serif;
+    }
+    .font-mono-label {
+        font-family: 'JetBrains Mono', monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        font-size: 0.7rem;
+    }
+    .text-gold-gradient {
+        background: linear-gradient(135deg, #F3C649 0%, #D4AF37 45%, #8C7323 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    .grain::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.07;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .spotlight {
+        background: radial-gradient(ellipse 60% 50% at 50% 30%, rgba(212, 175, 55, 0.14) 0%, transparent 70%);
+    }
+    .glass-header {
+        background: rgba(15, 35, 39, 0.82);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+    }
+    .gold-frame {
+        box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.35), 0 0 0 5px #0F2327, 0 0 0 6px rgba(212, 175, 55, 0.18);
+    }
+}
+
+@keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+    animation: marquee-scroll 46s linear infinite;
+}
+
+@keyframes pole-spin {
+    from { background-position-y: 0; }
+    to { background-position-y: 56px; }
+}
+
+.barber-pole-stripes {
+    background-image: repeating-linear-gradient(
+        -45deg,
+        #9E2A2B 0px, #9E2A2B 10px,
+        #F4F1EA 10px, #F4F1EA 18px,
+        #0F2327 18px, #0F2327 28px
+    );
+    animation: pole-spin 2.6s linear infinite;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.8) sepia(1) saturate(3) hue-rotate(10deg);
+    cursor: pointer;
+}

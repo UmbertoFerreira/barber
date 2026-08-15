@@ -1,0 +1,215 @@
+{
+  "brand": {
+    "name": "Antonio Barber",
+    "tagline": "Arte, Tradição e Elegância Masculina desde 1984",
+    "language": "pt-BR",
+    "theme": "Dark Vintage Petrol Barbershop",
+    "logo_emblem": {
+      "style": "Vintage Barber Emblem with Barber Pole, Straight Razor, Scissors, Gold Serif 'ANTONIO' text over Crimson Red Ribbon Banner 'BARBER'",
+      "primary_icon": "Scissors + Razor + Barber Pole SVG Emblem",
+      "colors": ["#0F2327", "#D4AF37", "#9E2A2B", "#F4F1EA"]
+    }
+  },
+  "colors": {
+    "background_dark": "#0B191C",
+    "background_petrol": "#0F2327",
+    "surface_petrol_card": "#152E34",
+    "surface_petrol_hover": "#1C3C43",
+    "accent_gold": "#D4AF37",
+    "accent_gold_bright": "#F3C649",
+    "accent_gold_muted": "#8C7323",
+    "accent_red": "#9E2A2B",
+    "accent_red_bright": "#C0392B",
+    "text_cream": "#F4F1EA",
+    "text_muted": "#94A3B8",
+    "border_gold_subtle": "rgba(212, 175, 55, 0.25)",
+    "border_petrol_light": "rgba(255, 255, 255, 0.08)",
+    "overlay_dark": "rgba(11, 25, 28, 0.75)"
+  },
+  "typography": {
+    "font_heading": "'Cinzel Decorative', 'Playfair Display', serif",
+    "font_subheading": "'Cormorant Garamond', serif",
+    "font_body": "'Plus Jakarta Sans', sans-serif",
+    "font_mono": "'JetBrains Mono', monospace",
+    "hierarchy": {
+      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight uppercase leading-none",
+      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-serif font-semibold tracking-normal text-gold",
+      "h3_card": "text-xl sm:text-2xl font-serif font-medium",
+      "body_text": "text-base leading-relaxed text-cream/90",
+      "mono_label": "text-xs uppercase tracking-[0.25em] font-mono"
+    }
+  },
+  "layout_and_sections": {
+    "header": {
+      "style": "Fixed Glassmorphism Header (backdrop-blur-md bg-[#0F2327]/80 border-b border-[#D4AF37]/20 z-50)",
+      "elements": [
+        "Vintage Emblem Logo + Brand Name 'ANTONIO BARBER'",
+        "Nav links: Serviços & Preços, Perfumes, Vestuário, Manifesto, Agendamento",
+        "Client Area Button ('Área do Cliente')",
+        "Admin Portal Switcher Button ('Painel Admin')",
+        "Cart Trigger with item counter badge"
+      ]
+    },
+    "hero": {
+      "style": "Kinetic Hero with line-by-line masked text reveal, subtle parallax background image, custom barber emblem highlight and Quick Appointment CTA",
+      "headline": "A ARTE DA NAVALHA ENCONTRA A ELEGÂNCIA MODERNA",
+      "subtext": "Mais do que um corte, um ritual de distinção masculina no coração da cidade."
+    },
+    "marquee": {
+      "style": "Slow Editorial Ribbon Marquee with low contrast, serif typography, separated by custom golden scissors icon",
+      "text": "ANTONIO BARBER • CORTE TRADICIONAL • BARBA IMPERIAL • PERFUMARIA EXCLUSIVA • ALFAIATARIA MASCULINA • ESTILO DE CLASSE • DESDE 1984"
+    },
+    "haircut_prices": {
+      "title": "SERVIÇOS & TABELA DE PREÇOS",
+      "description": "Cada serviço inclui toalha quente, massagem capilar e drink cortesia da casa.",
+      "items": [
+        {
+          "name": "Corte Executivo Antonio",
+          "price": "R$ 85,00",
+          "time": "45 min",
+          "desc": "Corte sob medida com lavagem especial, finalização com pomada artesanal e toalha quente."
+        },
+        {
+          "name": "Barba Imperial com Navalha",
+          "price": "R$ 65,00",
+          "time": "40 min",
+          "desc": "Alinhamento com lâmina tradicional, vapor de ozônio, balm hidratante e toalha aquecida."
+        },
+        {
+          "name": "Combo Senhor Antonio (Corte + Barba)",
+          "price": "R$ 135,00",
+          "time": "1h 15min",
+          "desc": "O ritual completo. Corte de cabelo, tratamento de barba, alinhamento de sobrancelha e drink premium."
+        },
+        {
+          "name": "Tratamento Capilar & Camuflagem de Grisalhos",
+          "price": "R$ 95,00",
+          "time": "50 min",
+          "desc": "Revitalização do couro cabeludo e tonalização natural imperceptível."
+        }
+      ]
+    },
+    "e_commerce_store": {
+      "differentiated_layout": true,
+      "perfumes_section": {
+        "title": "PERFUMARIA FINA & ASSINATURAS OLFATIVAS",
+        "badge": "Edição Limitada Antonio",
+        "items": [
+          {
+            "id": "perf-1",
+            "name": "Elixir Dark Petrol 100ml",
+            "price": "R$ 349,00",
+            "notes": "Notas de Couro, Ambar, Tabaco e Madeira de Cedro",
+            "image": "https://images.unsplash.com/photo-1523293182086-7651a899d37f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHxfHxwZXJmdW1lJTIwYm90dGxlJTIwcHJvZHVjdHxlbnwwfHx8fDE3ODY4Mjc2NjR8MA&ixlib=rb-4.1.0&q=85"
+          },
+          {
+            "id": "perf-2",
+            "name": "Colônia Vintage Gold 1984",
+            "price": "R$ 289,00",
+            "notes": "Citrus Apressado, Bergamota, Pimenta Preta e Vetiver",
+            "image": "https://images.unsplash.com/photo-1622618991746-fe6004db3a47?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaH3fHxwZXJmdW1lJTIwYm90dGxlJTIwcHJvZHVjdHxlbnwwfHx8fDE3ODY4Mjc2NjR8MA&ixlib=rb-4.1.0&q=85"
+          },
+          {
+            "id": "perf-3",
+            "name": "Essência Barber Reserve 50ml",
+            "price": "R$ 219,00",
+            "notes": "Sândalo, Cardamomo e Bálsamo de Resina",
+            "image": "https://images.unsplash.com/photo-1543422655-ac1c6ca993ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHw0fHxwZXJmdW1lJTIwYm90dGxlJTIwcHJvZHVjdHxlbnwwfHx8fDE3ODY4Mjc2NjR8MA&ixlib=rb-4.1.0&q=85"
+          }
+        ]
+      },
+      "clothing_section": {
+        "title": "VESTUÁRIO & ALFAIATARIA URBANA",
+        "badge": "Coleção Gentleman Apparel",
+        "items": [
+          {
+            "id": "cloth-1",
+            "name": "Jaqueta de Couro Legítimo Barber Vintage",
+            "price": "R$ 890,00",
+            "tag": "Edição de Colecionador",
+            "image": "https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHxfHxtZW4lMjBzdHJlZXR3ZWFyJTIwdmludGFnZSUyMGphY2tldCUyMGxlYXRoZXIlMjBjbG90aGluZyUyMGZhc2hpb24lMjBtb2RlbHxlbnwwfHx8fDE3ODY4Mjc2NjB8MA&ixlib=rb-4.1.0&q=85"
+          },
+          {
+            "id": "cloth-2",
+            "name": "Camiseta Heavyweight Cotton Antonio 240g",
+            "price": "R$ 189,00",
+            "tag": "100% Algodão Premium",
+            "image": "https://images.unsplash.com/photo-1532332248682-206cc786359f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHwyfHxtZW4lMjBzdHJlZXR3ZWFyJTIwdmludGFnZSUyMGphY2tldCUyMGxlYXRoZXIlMjBjbG90aGluZyUyMGZhc2hpb24lMjBtb2RlbHxlbnwwfHx8fDE3ODY4Mjc2NjB8MA&ixlib=rb-4.1.0&q=85"
+          },
+          {
+            "id": "cloth-3",
+            "name": "Avental de Mestre Barbeiro em Couro e Lona",
+            "price": "R$ 320,00",
+            "tag": "Profissional",
+            "image": "https://images.unsplash.com/photo-1578198576866-7e0ba6078128?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHw0fHxtZW4lMjBzdHJlZXR3ZWFyJTIwdmludGFnZSUyMGphY2tldCUyMGxlYXRoZXIlMjBjbG90aGluZyUyMGZhc2hpb24lMjBtb2RlbHxlbnwwfHx8fDE3ODY4Mjc2NjB8MA&ixlib=rb-4.1.0&q=85"
+          }
+        ]
+      }
+    },
+    "manifesto": {
+      "title": "NOSSO MANIFESTO",
+      "chapters": [
+        {
+          "number": "01",
+          "heading": "A Tradição da Lâmina",
+          "body": "Respeitamos a precisão do passado. Cada navalhada é executada com a calma e o domínio de um ofício repassado de geração em geração."
+        },
+        {
+          "number": "02",
+          "heading": "O Santuário do Gentleman",
+          "body": "Nossa barbearia não é apenas um local de passagem, mas um refúgio para desacelerar, saborear um bom café ou uísque e renovar a confiança."
+        },
+        {
+          "number": "03",
+          "heading": "Assinatura Inconfundível",
+          "body": "Seja no corte clássico, na barba alinhada ou nas fragrâncias exclusivas, garantimos que você carregue o selo Antonio por onde passar."
+        }
+      ]
+    },
+    "client_area": {
+      "features": [
+        "Login & Registro do Cliente (E-mail e Senha ou Modo Convidado Demo)",
+        "Meus Agendamentos (Status, Data, Horário, Barbeiro Selecionado)",
+        "Novo Agendamento Rápido (Seleção de Serviço, Barbeiro, Data e Horário)",
+        "Meus Pedidos na Loja (Status de envio, itens de Perfumes/Roupas)",
+        "Perfil e Preferências de Estilo"
+      ]
+    },
+    "admin_area": {
+      "features": [
+        "Painel de Agendamentos (Visão diária/semanal, aprovar/cancelar agendamentos)",
+        "Gerenciamento de Serviços & Preços (Adicionar/Editar valor do corte e barba)",
+        "Gerenciamento de Produtos (Perfumes e Vestuário, Controle de Estoque)",
+        "Gerenciamento de Pedidos da Loja (Atualizar status de entrega)"
+      ]
+    }
+  },
+  "media_assets": {
+    "hero_background": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHx2aW50YWdlJTIwYmFyYmVyc2hvcCUyMGhhaXIlMjBzdHlsaW5nJTIwYmFyYmVyJTIwdG9vbHMlMjBoYWlyY3V0JTIwZ2VudGxlbWFufGVufDB8fHx8MTc4NjgyNzY2MHww&ixlib=rb-4.1.0&q=85",
+    "barber_interior": "https://images.unsplash.com/photo-1761064039763-0d9aa5124510?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwzfHx2aW50YWdlJTIwYmFyYmVyc2hvcCUyMGhhaXIlMjBzdHlsaW5nJTIwYmFyYmVyJTIwdG9vbHMlMjBoYWlyY3V0JTIwZ2VudGxlbWFufGVufDB8fHx8MTc4NjgyNzY2MHww&ixlib=rb-4.1.0&q=85",
+    "barber_action": "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwzfHxiYXJiZXIlMjBoYWlyY3V0JTIwYmVhcmR8ZW58MHx8fHwxNzg2ODI3NjY0fDA&ixlib=rb-4.1.0&q=85",
+    "barber_cut_detail": "https://images.unsplash.com/photo-1647140655214-e4a2d914971f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwyfHxiYXJiZXIlMjBoYWlyY3V0JTIwYmVhcmR8ZW58MHx8fHwxNzg2ODI3NjY0fDA&ixlib=rb-4.1.0&q=85",
+    "perfumes": [
+      "https://images.unsplash.com/photo-1523293182086-7651a899d37f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHxfHxwZXJmdW1lJTIwYm90dGxlJTIwcHJvZHVjdHxlbnwwfHx8fDE3ODY4Mjc2NjR8MA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1622618991746-fe6004db3a47?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaH3fHxwZXJmdW1lJTIwYm90dGxlJTIwcHJvZHVjdHxlbnwwfHx8fDE3ODY4Mjc2NjR8MA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1543422655-ac1c6ca993ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHw0fHxwZXJmdW1lJTIwYm90dGxlJTIwcHJvZHVjdHxlbnwwfHx8fDE3ODY4Mjc2NjR8MA&ixlib=rb-4.1.0&q=85"
+    ],
+    "clothing": [
+      "https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHxfHxtZW4lMjBzdHJlZXR3ZWFyJTIwdmludGFnZSUyMGphY2tldCUyMGxlYXRoZXIlMjBjbG90aGluZyUyMGZhc2hpb24lMjBtb2RlbHxlbnwwfHx8fDE3ODY4Mjc2NjB8MA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1532332248682-206cc786359f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHwyfHxtZW4lMjBzdHJlZXR3ZWFyJTIwdmludGFnZSUyMGphY2tldCUyMGxlYXRoZXIlMjBjbG90aGluZyUyMGZhc2hpb24lMjBtb2RlbHxlbnwwfHx8fDE3ODY4Mjc2NjB8MA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1578198576866-7e0ba6078128?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHw0fHxtZW4lMjBzdHJlZXR3ZWFyJTIwdmludGFnZSUyMGphY2tldCUyMGxlYXRoZXIlMjBjbG90aGluZyUyMGZhc2hpb24lMjBtb2RlbHxlbnwwfHx8fDE3ODY4Mjc2NjB8MA&ixlib=rb-4.1.0&q=85"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Build a complete Antonio Barber web platform in Portuguese (Brazil).",
+    "Integrate Lenis smooth scrolling for luxury momentum effect.",
+    "Implement Framer Motion for line-by-line kinetic hero text entrance and scroll reveals.",
+    "Design the custom logo component with barber pole, straight razors, scissors, gold serif ANTONIO typography, and red ribbon BARBER banner.",
+    "Use dark petrol background (#0F2327) with gold accents (#D4AF37) and red highlights (#9E2A2B).",
+    "Create clear distinction between Perfumes section and Clothing section in the store.",
+    "Ensure Client Area allows demo booking, viewing products, adding to cart, placing orders, and logging in.",
+    "Ensure Admin Area allows managing appointments, haircut prices, products, and orders.",
+    "Add data-testid to all key interactive elements (buttons, inputs, cards, tabs).",
+    "Strictly follow contrast requirements (gold text on dark petrol, never low-contrast grey on grey)."
+  ]
+}
