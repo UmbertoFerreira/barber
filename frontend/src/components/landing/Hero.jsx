@@ -60,13 +60,13 @@ export default function Hero() {
           className="font-mono-label text-gold mb-6"
           data-testid="hero-eyebrow"
         >
-          BARBEARIA CLÁSSICA · TRADIÇÃO E ESTILO
+          BARBEARIA · CORTE · BARBA · LOJA
         </motion.p>
 
         <h1 className="font-display font-bold uppercase leading-[1.05] text-4xl sm:text-5xl lg:text-6xl tracking-tight" data-testid="hero-headline">
-          <MaskedLine delay={0.35}>A arte da navalha</MaskedLine>
-          <MaskedLine delay={0.5} className="text-gold-gradient">encontra a elegância</MaskedLine>
-          <MaskedLine delay={0.65}>moderna</MaskedLine>
+          <MaskedLine delay={0.35}>Corte e barba</MaskedLine>
+          <MaskedLine delay={0.5} className="text-gold-gradient">do seu jeito,</MaskedLine>
+          <MaskedLine delay={0.65}>sem frescura</MaskedLine>
         </h1>
 
         <motion.p
@@ -76,7 +76,7 @@ export default function Hero() {
           className="font-serif-alt italic text-cream/75 text-lg md:text-xl mt-7 max-w-2xl mx-auto leading-relaxed"
           data-testid="hero-subtext"
         >
-          Mais do que um corte, um ritual de distinção masculina no coração da cidade.
+          Agende seu horário, escolha sua referência na galeria e aproveite a loja da casa.
         </motion.p>
 
         <motion.div

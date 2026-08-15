@@ -15,6 +15,8 @@ Landing page de barbearia "Antonio Barber" baseada na foto do logo enviada (embl
 - Admin: gerencia agendamentos (status), serviços/preços (CRUD), produtos (CRUD, perfume/vestuário), pedidos (status)
 
 ## Implementado (2026-08-15)
+- Fotos reais da casa na galeria (2 primeiras posições: degradê e freestyle), servidas de /public/gallery
+- Textos do site simplificados (tom direto, sem "gourmet"): hero "Corte e barba do seu jeito, sem frescura", seções renomeadas (O que a gente faz, Escolha seu corte, Loja, Sobre a casa), descrições de serviços e manifesto reescritos
 - Galeria de Cortes: vitrine com 6 estilos (fotos reais), hover revela nome/descrição e botão "Quero esse estilo" que leva ao agendamento com a referência preenchida nas observações; novo link "Galeria" no menu
 - Logo emblema SVG customizado (pólo, navalha, tesoura, ANTONIO dourado, faixa BARBER vermelha) + ícone/favicon
 - Landing award-level: hero cinético com reveal linha a linha + parallax, pólos de barbeiro animados, marquee editorial lento, cards de serviços/preços numerados, seção Perfumaria (spotlight, molduras douradas) diferenciada da seção Vestuário (grid editorial), manifesto em capítulos numerados com parallax, footer

@@ -7,12 +7,12 @@ const CUTS = [
   {
     name: "Degradê Navalhado",
     desc: "Fade cirúrgico finalizado na lâmina",
-    image: "https://images.unsplash.com/photo-1647140655214-e4a2d914971f?fm=jpg&q=80&w=1200&auto=format&fit=crop",
+    image: "/gallery/corte-degrade.png",
   },
   {
     name: "Social Executivo",
-    desc: "Tesoura clássica, risca lateral impecável",
-    image: "https://images.unsplash.com/photo-1593702275687-f8b402bf1fb5?fm=jpg&q=80&w=1200&auto=format&fit=crop",
+    desc: "Estilo marcante com risca freestyle",
+    image: "/gallery/corte-freestyle.jpeg",
   },
   {
     name: "Tesoura Artesanal",
@@ -56,7 +56,7 @@ export default function Gallery() {
           className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16"
         >
           <div>
-            <p className="font-mono-label text-crimson-bright mb-4">— Capítulo II · A Vitrine</p>
+            <p className="font-mono-label text-crimson-bright mb-4">— Escolha seu corte</p>
             <h2 className="font-display font-bold uppercase text-3xl sm:text-4xl lg:text-5xl text-cream leading-tight" data-testid="gallery-title">
               Galeria de<br />
               <span className="text-gold-gradient">Cortes da Casa</span>

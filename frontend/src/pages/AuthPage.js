@@ -47,7 +47,7 @@ export default function AuthPage() {
             {mode === "login" ? "Entrar na sua conta" : "Criar cadastro"}
           </h1>
           <p className="font-serif-alt italic text-cream/50 mt-2 text-center">
-            {mode === "login" ? "Sua cadeira está esperando." : "Junte-se ao clube dos gentlemen."}
+            {mode === "login" ? "Sua cadeira está esperando." : "Cadastre-se e agende seu horário."}
           </p>
         </div>
 

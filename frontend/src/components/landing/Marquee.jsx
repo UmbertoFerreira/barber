@@ -2,12 +2,12 @@ import { Scissors } from "lucide-react";
 
 const ITEMS = [
   "ANTONIO BARBER",
-  "CORTE TRADICIONAL",
-  "BARBA IMPERIAL",
-  "PERFUMARIA EXCLUSIVA",
-  "ALFAIATARIA MASCULINA",
-  "ESTILO DE CLASSE",
-  "TRADIÇÃO E ESTILO",
+  "CORTE NA TESOURA",
+  "BARBA NA NAVALHA",
+  "PERFUMES",
+  "ROUPAS E ACESSÓRIOS",
+  "ESTILO DE VERDADE",
+  "AQUI VOCÊ É DE CASA",
 ];
 
 function Row() {

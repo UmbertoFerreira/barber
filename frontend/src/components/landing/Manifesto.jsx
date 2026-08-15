@@ -5,17 +5,17 @@ const CHAPTERS = [
   {
     number: "01",
     heading: "A Tradição da Lâmina",
-    body: "Respeitamos a precisão do passado. Cada navalhada é executada com a calma e o domínio de um ofício repassado de geração em geração.",
+    body: "Aqui o corte é feito com calma e capricho, do jeito antigo: navalha, tesoura e atenção total.",
   },
   {
     number: "02",
-    heading: "O Santuário do Homem",
-    body: "Nossa barbearia não é apenas um local de passagem, mas um refúgio para desacelerar, saborear um bom café ou uísque e renovar a confiança.",
+    heading: "Lugar de se sentir em casa",
+    body: "Chega, senta e relaxa. Toma um café, troca uma ideia e sai renovado.",
   },
   {
     number: "03",
-    heading: "Assinatura Inconfundível",
-    body: "Seja no corte clássico, na barba alinhada ou nas fragrâncias exclusivas, garantimos que você carregue o selo Antonio por onde passar.",
+    heading: "Estilo que marca",
+    body: "Corte, barba ou perfume — você sai daqui com a sua marca, do seu jeito.",
   },
 ];
 
@@ -36,9 +36,9 @@ export default function Manifesto() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="font-mono-label text-crimson-bright mb-4">— Capítulo V · A Filosofia</p>
+            <p className="font-mono-label text-crimson-bright mb-4">— Sobre a casa</p>
             <h2 className="font-display font-bold uppercase text-3xl sm:text-4xl lg:text-5xl text-cream leading-tight mb-14" data-testid="manifesto-title">
-              Nosso <span className="text-gold-gradient">Manifesto</span>
+              Nossa <span className="text-gold-gradient">História</span>
             </h2>
           </motion.div>
 
@@ -74,8 +74,8 @@ export default function Manifesto() {
             <motion.img style={{ y: imgY }} src={SIDE_IMG} alt="Barbeiro Antonio em ação" className="w-full h-[116%] object-cover -mt-[8%]" />
           </div>
           <div className="absolute -bottom-5 -left-5 bg-crimson px-6 py-4 border border-gold/40">
-            <p className="font-display text-cream text-lg tracking-wider">TRADIÇÃO PURA</p>
-            <p className="font-mono-label text-cream/70 text-[0.55rem] mt-1">Três gerações de mestres barbeiros</p>
+            <p className="font-display text-cream text-lg tracking-wider">FEITO COM CAPRICHO</p>
+            <p className="font-mono-label text-cream/70 text-[0.55rem] mt-1">Aqui você é de casa</p>
           </div>
         </motion.div>
       </div>

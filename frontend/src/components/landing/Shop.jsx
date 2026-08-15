@@ -85,10 +85,10 @@ export default function Shop() {
         <div className="absolute inset-0 spotlight pointer-events-none" />
         <div className="max-w-7xl mx-auto relative">
           <SectionHeader
-            eyebrow="Capítulo III · A Fragrância"
-            title="Perfumaria fina &"
-            accent="assinaturas olfativas"
-            description="Frascos de edição limitada criados para o homem que deixa rastro por onde passa."
+            eyebrow="Loja · Perfumes"
+            title="Perfumes"
+            accent="da casa"
+            description="Fragrâncias pra você sair daqui cheirosão."
             icon={SprayCan}
             testId="perfumes-title"
           />
@@ -101,10 +101,10 @@ export default function Shop() {
       <section id="vestuario" data-testid="clothing-section" className="relative py-24 lg:py-36 px-5 lg:px-8 bg-petrol-950 grain">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
-            eyebrow="Capítulo IV · O Traje"
-            title="Vestuário &"
-            accent="alfaiataria urbana"
-            description="Peças heavyweight e couro legítimo — o uniforme de quem vive o estilo Antonio dentro e fora da cadeira."
+            eyebrow="Loja · Roupas"
+            title="Roupas"
+            accent="& acessórios"
+            description="Camisetas, jaquetas e acessórios com a marca da casa."
             icon={Shirt}
             testId="clothing-title"
           />

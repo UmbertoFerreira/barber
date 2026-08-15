@@ -11,7 +11,7 @@ const LINKS = [
   { label: "Galeria", hash: "#galeria" },
   { label: "Perfumes", hash: "#perfumes" },
   { label: "Vestuário", hash: "#vestuario" },
-  { label: "Manifesto", hash: "#manifesto" },
+  { label: "Sobre", hash: "#manifesto" },
 ];
 
 export default function Navbar() {

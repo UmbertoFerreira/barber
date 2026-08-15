@@ -340,13 +340,13 @@ async def root():
 # ---------- Seed ----------
 SEED_SERVICES = [
     {"name": "Corte Executivo Antonio", "price": 85.0, "duration": "45 min",
-     "description": "Corte sob medida com lavagem especial, finalização com pomada artesanal e toalha quente."},
+     "description": "Corte no seu estilo, com lavagem, finalização e toalha quente."},
     {"name": "Barba Imperial com Navalha", "price": 65.0, "duration": "40 min",
-     "description": "Alinhamento com lâmina tradicional, vapor de ozônio, balm hidratante e toalha aquecida."},
+     "description": "Barba feita na navalha, com toalha quente e balm pra finalizar."},
     {"name": "Combo Senhor Antonio (Corte + Barba)", "price": 135.0, "duration": "1h 15min",
-     "description": "O ritual completo. Corte de cabelo, tratamento de barba, alinhamento de sobrancelha e drink premium."},
+     "description": "Corte + barba no mesmo horário, com sobrancelha alinhada de brinde."},
     {"name": "Tratamento Capilar & Camuflagem de Grisalhos", "price": 95.0, "duration": "50 min",
-     "description": "Revitalização do couro cabeludo e tonalização natural imperceptível."},
+     "description": "Tratamento pro couro cabeludo e disfarce natural dos fios brancos."},
 ]
 
 SEED_PRODUCTS = [

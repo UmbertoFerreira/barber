@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="flex flex-col items-start gap-5">
             <LogoEmblem size={90} />
             <p className="font-serif-alt italic text-cream/55 leading-relaxed max-w-xs">
-              Arte, tradição e elegância masculina. Um ritual que atravessa gerações.
+              Corte, barba e estilo. Aqui você é de casa.
             </p>
           </div>
           <div>
@@ -32,7 +32,7 @@ export default function Footer() {
         </div>
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-mono-label text-cream/35 text-[0.6rem]">© 2026 ANTONIO BARBER · TODOS OS DIREITOS RESERVADOS</p>
-          <p className="font-serif-alt italic text-gold/50 text-sm">"O estilo é a lâmina da personalidade."</p>
+          <p className="font-serif-alt italic text-gold/50 text-sm">"Do seu jeito, sem frescura."</p>
         </div>
       </div>
     </footer>

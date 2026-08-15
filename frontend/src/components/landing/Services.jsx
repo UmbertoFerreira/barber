@@ -25,14 +25,14 @@ export default function Services() {
           className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16"
         >
           <div>
-            <p className="font-mono-label text-crimson-bright mb-4">— Capítulo I · A Cadeira</p>
+            <p className="font-mono-label text-crimson-bright mb-4">— O que a gente faz</p>
             <h2 className="font-display font-bold uppercase text-3xl sm:text-4xl lg:text-5xl text-cream leading-tight" data-testid="services-title">
               Serviços &<br />
               <span className="text-gold-gradient">Tabela de Preços</span>
             </h2>
           </div>
           <p className="font-serif-alt italic text-cream/60 text-lg max-w-sm leading-relaxed">
-            Cada serviço inclui toalha quente, massagem capilar e drink cortesia da casa.
+            Todo atendimento com toalha quente e aquele capricho.
           </p>
         </motion.div>
 
