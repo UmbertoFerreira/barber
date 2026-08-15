@@ -2,21 +2,9 @@ import { motion } from "framer-motion";
 import { Scissors } from "lucide-react";
 
 const CHAPTERS = [
-  {
-    number: "01",
-    heading: "A Tradição da Lâmina",
-    body: "Aqui o corte é feito com calma e capricho, do jeito antigo: navalha, tesoura e atenção total em cada detalhe.",
-  },
-  {
-    number: "02",
-    heading: "Lugar de se sentir em casa",
-    body: "Chega, senta e relaxa. Toma um café, troca uma ideia e sai renovado — sem pressa e sem enrolação.",
-  },
-  {
-    number: "03",
-    heading: "Estilo que marca",
-    body: "Corte, barba ou perfume — você sai daqui com a sua marca, do seu jeito, pronto pra qualquer rolê.",
-  },
+  { number: "01", heading: "Tradição" },
+  { number: "02", heading: "Amizade" },
+  { number: "03", heading: "Estilo" },
 ];
 
 export default function Manifesto() {
@@ -74,8 +62,7 @@ export default function Manifesto() {
               <span className="font-display text-6xl lg:text-7xl text-gold/15 group-hover:text-gold/30 transition-colors duration-500 leading-none block mb-6">
                 {c.number}
               </span>
-              <h3 className="font-serif-alt font-semibold text-2xl text-cream mb-4">{c.heading}</h3>
-              <p className="text-cream/55 text-sm leading-relaxed">{c.body}</p>
+              <h3 className="font-serif-alt font-semibold text-2xl lg:text-3xl text-cream">{c.heading}</h3>
               <span className="absolute top-0 left-0 h-[2px] w-0 bg-gold group-hover:w-full transition-all duration-700" />
             </motion.article>
           ))}
