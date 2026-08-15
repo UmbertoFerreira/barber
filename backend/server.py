@@ -417,22 +417,22 @@ SEED_SERVICES = [
 SEED_PRODUCTS = [
     {"name": "Elixir Dark Petrol 100ml", "category": "perfume", "price": 349.0,
      "notes": "Notas de Couro, Âmbar, Tabaco e Madeira de Cedro", "tag": "Edição Limitada Antonio",
-     "image": "https://images.unsplash.com/photo-1523293182086-7651a899d37f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHxfHxwZXJmdW1lJTIwYm90dGxlJTIwcHJvZHVjdHxlbnwwfHx8fDE3ODY4Mjc2NjR8MA&ixlib=rb-4.1.0&q=85", "stock": 12},
+     "image": "", "stock": 12},
     {"name": "Colônia Vintage Gold", "category": "perfume", "price": 289.0,
      "notes": "Citrus Apressado, Bergamota, Pimenta Preta e Vetiver", "tag": "Best Seller",
-     "image": "https://images.unsplash.com/photo-1622618991746-fe6004db3a47?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaH3fHxwZXJmdW1lJTIwYm90dGxlJTIwcHJvZHVjdHxlbnwwfHx8fDE3ODY4Mjc2NjR8MA&ixlib=rb-4.1.0&q=85", "stock": 8},
+     "image": "", "stock": 8},
     {"name": "Essência Barber Reserve 50ml", "category": "perfume", "price": 219.0,
      "notes": "Sândalo, Cardamomo e Bálsamo de Resina", "tag": "",
-     "image": "https://images.unsplash.com/photo-1543422655-ac1c6ca993ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHw0fHxwZXJmdW1lJTIwYm90dGxlJTIwcHJvZHVjdHxlbnwwfHx8fDE3ODY4Mjc2NjR8MA&ixlib=rb-4.1.0&q=85", "stock": 15},
+     "image": "", "stock": 15},
     {"name": "Jaqueta de Couro Legítimo Barber Vintage", "category": "vestuario", "price": 890.0,
      "notes": "Couro legítimo envelhecido, forro em sarja premium", "tag": "Edição de Colecionador",
-     "image": "https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHxfHxtZW4lMjBzdHJlZXR3ZWFyJTIwdmludGFnZSUyMGphY2tldCUyMGxlYXRoZXIlMjBjbG90aGluZyUyMGZhc2hpb24lMjBtb2RlbHxlbnwwfHx8fDE3ODY4Mjc2NjB8MA&ixlib=rb-4.1.0&q=85", "stock": 4},
+     "image": "", "stock": 4},
     {"name": "Camiseta Heavyweight Cotton Antonio 240g", "category": "vestuario", "price": 189.0,
      "notes": "100% algodão premium, modelagem reta clássica", "tag": "100% Algodão Premium",
-     "image": "https://images.unsplash.com/photo-1532332248682-206cc786359f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHwyfHxtZW4lMjBzdHJlZXR3ZWFyJTIwdmludGFnZSUyMGphY2tldCUyMGxlYXRoZXIlMjBjbG90aGluZyUyMGZhc2hpb24lMjBtb2RlbHxlbnwwfHx8fDE3ODY4Mjc2NjB8MA&ixlib=rb-4.1.0&q=85", "stock": 20},
+     "image": "", "stock": 20},
     {"name": "Avental de Mestre Barbeiro em Couro e Lona", "category": "vestuario", "price": 320.0,
      "notes": "Lona encerada com tiras de couro e fivelas de latão", "tag": "Profissional",
-     "image": "https://images.unsplash.com/photo-1578198576866-7e0ba6078128?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHw0fHxtZW4lMjBzdHJlZXR3ZWFyJTIwdmludGFnZSUyMGphY2tldCUyMGxlYXRoZXIlMjBjbG90aGluZyUyMGZhc2hpb24lMjBtb2RlbHxlbnwwfHx8fDE3ODY4Mjc2NjB8MA&ixlib=rb-4.1.0&q=85", "stock": 7},
+     "image": "", "stock": 7},
 ]
 
 

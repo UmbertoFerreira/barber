@@ -14,26 +14,6 @@ const CUTS = [
     desc: "Cor vibrante com risca freestyle na navalha",
     image: "/gallery/corte-freestyle.jpeg",
   },
-  {
-    name: "Tesoura Artesanal",
-    desc: "Corte inteiro na tesoura, sem máquina",
-    image: "https://images.unsplash.com/photo-1635273051937-a0ddef9573b6?fm=jpg&q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    name: "Buzz & Barba Alinhada",
-    desc: "Máquina rente com contorno de navalha",
-    image: "https://images.unsplash.com/photo-1657105052497-f996284ffff8?fm=jpg&q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    name: "Máquina de Precisão",
-    desc: "Linhas limpas e acabamento milimétrico",
-    image: "https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?fm=jpg&q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    name: "Pompadour Vintage",
-    desc: "Volume clássico com brilho de pomada",
-    image: "https://images.unsplash.com/photo-1578390432942-d323db577792?fm=jpg&q=80&w=1200&auto=format&fit=crop",
-  },
 ];
 
 export default function Gallery() {
@@ -67,7 +47,7 @@ export default function Gallery() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-4xl">
           {CUTS.map((cut, idx) => (
             <motion.figure
               key={cut.name}
@@ -75,8 +55,8 @@ export default function Gallery() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.9, delay: (idx % 3) * 0.12, ease: [0.22, 1, 0.36, 1] }}
-              className={`group relative overflow-hidden gold-frame cursor-pointer ${idx % 3 === 1 ? "lg:translate-y-10" : ""}`}
+              transition={{ duration: 0.9, delay: idx * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative overflow-hidden gold-frame cursor-pointer"
               onClick={() => pickStyle(cut)}
             >
               <div className="aspect-[3/4] overflow-hidden">

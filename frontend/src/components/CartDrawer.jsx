@@ -74,7 +74,13 @@ export default function CartDrawer() {
               {items.map((i) => (
                 <motion.div layout key={i.product.id} data-testid={`cart-item-${i.product.id}`} className="flex gap-4 border border-white/10 bg-petrol-800/60 p-3">
                   <div className="w-20 h-24 overflow-hidden flex-shrink-0 gold-frame">
-                    <img src={i.product.image} alt={i.product.name} className="w-full h-full object-cover" />
+                    {i.product.image ? (
+                      <img src={i.product.image} alt={i.product.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="w-full h-full bg-petrol-800 flex items-center justify-center">
+                        <ShoppingBag size={22} className="text-gold/40" />
+                      </div>
+                    )}
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="font-serif-alt text-cream text-base leading-tight truncate">{i.product.name}</p>

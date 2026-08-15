@@ -15,7 +15,8 @@ Landing page de barbearia "Antonio Barber" baseada na foto do logo enviada (embl
 - Admin: gerencia agendamentos (status), serviços/preços (CRUD), produtos (CRUD, perfume/vestuário), pedidos (status)
 
 ## Implementado (2026-08-15)
-- Fotos reais da casa na galeria (2 primeiras posições: degradê e freestyle), servidas de /public/gallery
+- Galeria reduzida às 2 fotos reais da casa; fotos de exemplo dos produtos removidas (placeholder "Foto em breve"; admin pode adicionar URL de foto depois)
+- Pacote do código para VSCode: /app/antonio-barber-codigo.zip + README-LOCAL.md com instruções de execução
 - Textos do site simplificados (tom direto, sem "gourmet"): hero "Corte e barba do seu jeito, sem frescura", seções renomeadas (O que a gente faz, Escolha seu corte, Loja, Sobre a casa), descrições de serviços e manifesto reescritos
 - Galeria de Cortes: vitrine com 6 estilos (fotos reais), hover revela nome/descrição e botão "Quero esse estilo" que leva ao agendamento com a referência preenchida nas observações; novo link "Galeria" no menu
 - Horários bloqueados: GET /api/bookings/slots?date= retorna horários ocupados (pendente/confirmado); select de horário desabilita ocupados com "— ocupado" e auto-seleciona horário livre; backend rejeita duplicado com 409; cancelar agendamento no admin libera o horário

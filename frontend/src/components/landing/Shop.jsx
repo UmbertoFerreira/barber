@@ -18,13 +18,22 @@ function ProductCard({ product, idx, variant }) {
     >
       <div className={`relative overflow-hidden ${variant === "perfume" ? "spotlight" : ""}`}>
         <div className={`overflow-hidden ${variant === "perfume" ? "aspect-[3/4] gold-frame" : "aspect-[4/5] border border-white/10"}`}>
-          <motion.img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-full object-cover"
-            whileHover={{ scale: 1.07 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          />
+          {product.image ? (
+            <motion.img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-full object-cover"
+              whileHover={{ scale: 1.07 }}
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            />
+          ) : (
+            <div className="w-full h-full bg-petrol-800 flex flex-col items-center justify-center gap-4 spotlight">
+              {variant === "perfume"
+                ? <SprayCan size={56} strokeWidth={1} className="text-gold/50" />
+                : <Shirt size={56} strokeWidth={1} className="text-gold/50" />}
+              <span className="font-mono-label text-cream/30 text-[0.6rem]">Foto em breve</span>
+            </div>
+          )}
         </div>
         {product.tag && (
           <span className="absolute top-4 left-4 bg-crimson text-cream font-mono-label text-[0.58rem] px-3 py-1.5" data-testid={`product-tag-${product.id}`}>
